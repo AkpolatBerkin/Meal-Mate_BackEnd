@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class RezeptRestController {
@@ -18,11 +20,12 @@ public class RezeptRestController {
     private String frontendUrl;
 
     @CrossOrigin(origins = "${frontend.url}")
-    @GetMapping(path= "/api/rezept")
-    public ResponseEntity<Rezept> getRezept() {
-        final Rezept rezept = new Rezept("Pizza", "Teig, Tomatensoße, Käse, Thunfisch", "In Ofen bei 200 Grad backen", "Hauptgericht", 1, 10.0);
-        return ResponseEntity.ok(rezept);
+    @GetMapping(path = "/api/rezept")
+    public ResponseEntity<List<Rezept>> getAlleRezepte() {
+        List<Rezept> rezepte = rezeptRepository.findAll();
+        return ResponseEntity.ok(rezepte);
     }
+
 
     @CrossOrigin(origins = "${frontend.url}")
     @PostMapping(path = "/api/rezept")

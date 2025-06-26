@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 
-@CrossOrigin
 @RestController
 public class RezeptRestController {
 
@@ -19,15 +18,12 @@ public class RezeptRestController {
     @Value("${frontend.url}")
     private String frontendUrl;
 
-    @CrossOrigin(origins = "${frontend.url}")
     @GetMapping(path = "/api/rezept")
     public ResponseEntity<List<Rezept>> getAlleRezepte() {
         List<Rezept> rezepte = rezeptRepository.findAll();
         return ResponseEntity.ok(rezepte);
     }
 
-
-    @CrossOrigin(origins = "${frontend.url}")
     @PostMapping(path = "/api/rezept")
     public ResponseEntity<Rezept> createRezept(@RequestBody Rezept rezept) {
         Rezept saved = rezeptRepository.save(rezept);

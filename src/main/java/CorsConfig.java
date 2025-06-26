@@ -1,3 +1,4 @@
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -5,15 +6,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfig {
+    
+    @Value("${frontend.url}")
+    private String frontendUrl;
+    
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*") // Erlaube alle Ursprünge, für Produktion anpassen!
+                        .allowedOrigins(
+                            "http://localhost:5173", // Für lokale Entwicklung
+                            frontendUrl, // Für Produktion (aus application.properties)
+                            "https://meal-mate-frontend-ome0.onrender.com" // Backup für Produktion
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(false);
             }
         };
     }

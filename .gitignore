@@ -64,4 +64,5 @@ out/
 
 # Umgebungsvariablen (WICHTIG!)
 .env
+*.env
 application-local.properties

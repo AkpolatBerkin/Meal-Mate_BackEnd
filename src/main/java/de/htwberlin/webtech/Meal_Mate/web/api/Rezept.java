@@ -30,11 +30,11 @@ public class Rezept {
     private List<Bewertung> bewertungen;
 
     // Neuer Konstruktor für Frontend-Daten
-    public Rezept(String name, String kategorie, String zubereitung, double dauer, int portionen, double bewertung) {
+    public Rezept(String name, String zubereitung, double dauer, int portionen, double bewertung) {
         this.name = name;
         this.zubereitung = zubereitung;
-        this.portionen = portionen;
         this.dauer = dauer;
+        this.portionen = portionen;
         this.bewertung = bewertung;
     }
 }

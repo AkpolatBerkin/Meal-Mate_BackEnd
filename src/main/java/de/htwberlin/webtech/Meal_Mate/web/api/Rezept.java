@@ -12,10 +12,12 @@ public class Rezept {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String zubereitung;
     private int portionen;
     private double dauer;
+    private double bewertung;
 
     @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
     private List<Zutat> zutaten;
@@ -27,10 +29,12 @@ public class Rezept {
     @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
     private List<Bewertung> bewertungen;
 
-    public Rezept(String name, String zubereitung, int portionen, double dauer) {
+    // Neuer Konstruktor für Frontend-Daten
+    public Rezept(String name, String kategorie, String zubereitung, double dauer, int portionen, double bewertung) {
         this.name = name;
         this.zubereitung = zubereitung;
         this.portionen = portionen;
         this.dauer = dauer;
+        this.bewertung = bewertung;
     }
 }

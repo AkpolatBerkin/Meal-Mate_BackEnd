@@ -64,7 +64,8 @@ public class RezeptRestController {
             rezept.setKategorie(rezeptDetails.getKategorie());
             rezept.setPortionen(rezeptDetails.getPortionen());
             rezept.setDauer(rezeptDetails.getDauer());
-            
+            rezept.setBewertung(rezeptDetails.getBewertung()); // Neue Zeile
+
             Rezept updatedRezept = rezeptRepository.save(rezept);
             return ResponseEntity.ok(updatedRezept);
         } else {

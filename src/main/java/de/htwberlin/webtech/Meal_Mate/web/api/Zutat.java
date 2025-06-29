@@ -15,9 +15,6 @@ public class Zutat {
     private double menge;
     private String einheit;
 
-    @ManyToOne
-    @JoinColumn(name = "rezept_id")
-    private Rezept rezept;
 
     public Zutat(String name, double menge, String einheit) {
         this.name = name;

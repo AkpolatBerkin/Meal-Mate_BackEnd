@@ -15,8 +15,6 @@ public class Kategorie {
     private String name;
     private String beschreibung;
 
-    @OneToMany(mappedBy = "kategorie")
-    private List<Rezept> rezepte;
 
     public Kategorie(String name, String beschreibung) {
         this.name = name;

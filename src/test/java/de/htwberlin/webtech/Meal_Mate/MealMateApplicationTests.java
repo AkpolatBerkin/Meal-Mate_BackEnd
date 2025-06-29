@@ -22,7 +22,8 @@ class MealMateApplicationTests {
 
 	@Test
 	void testRezeptSpeichernUndLaden() {
-		var rezept = new Rezept("Test-Pasta", "Hauptgericht", "Kochen", 30.0, 4, 0.0);
+		var rezept = new Rezept("Test-Pasta", "In heißem Wasser kochen.", 30.0, 4, 0.0);
+
 		var gespeichert = rezeptService.speichereRezept(rezept);
 
 		assertNotNull(gespeichert);

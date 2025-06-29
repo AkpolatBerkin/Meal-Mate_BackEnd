@@ -27,7 +27,7 @@ class RezeptServiceTest {
     @Test
     void testAlleRezepte() {
         // given
-        var rezept = new Rezept("Pasta", "Hauptgericht", "Kochen", 30.0, 4, 0.0);
+        var rezept = new Rezept("Pasta", "Kochen", 30.0, 4, 0.0);
         when(repository.findAll()).thenReturn(List.of(rezept));
 
         // when
@@ -42,7 +42,8 @@ class RezeptServiceTest {
     @Test
     void testSpeichereRezept() {
         // given
-        var rezept = new Rezept("Pizza", "Hauptgericht", "Backen", 45.0, 2, 0.0);
+        var rezept = new Rezept("Pizza", "Backen", 45.0, 2, 0.0);
+
         when(repository.save(any(Rezept.class))).thenReturn(rezept);
 
         // when
@@ -56,7 +57,7 @@ class RezeptServiceTest {
     @Test
     void testGetRezeptById() {
         // given
-        var rezept = new Rezept("Suppe", "Hauptgericht", "Kochen", 60.0, 6, 0.0);
+        var rezept = new Rezept("Suppe", "Kochen", 60.0, 6, 0.0);
         when(repository.findById(1L)).thenReturn(Optional.of(rezept));
 
         // when

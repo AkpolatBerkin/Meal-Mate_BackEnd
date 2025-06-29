@@ -19,15 +19,7 @@ public class Rezept {
     private double dauer;
     private double bewertung;
 
-    @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
-    private List<Zutat> zutaten;
 
-    @ManyToOne
-    @JoinColumn(name = "kategorie_id")
-    private Kategorie kategorie;
-
-    @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
-    private List<Bewertung> bewertungen;
 
     // Neuer Konstruktor für Frontend-Daten
     public Rezept(String name, String zubereitung, double dauer, int portionen, double bewertung) {

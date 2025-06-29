@@ -59,9 +59,7 @@ public class RezeptRestController {
         if (optionalRezept.isPresent()) {
             Rezept rezept = optionalRezept.get();
             rezept.setName(rezeptDetails.getName());
-            rezept.setZutaten(rezeptDetails.getZutaten());
             rezept.setZubereitung(rezeptDetails.getZubereitung());
-            rezept.setKategorie(rezeptDetails.getKategorie());
             rezept.setPortionen(rezeptDetails.getPortionen());
             rezept.setDauer(rezeptDetails.getDauer());
             rezept.setBewertung(rezeptDetails.getBewertung()); // Neue Zeile
